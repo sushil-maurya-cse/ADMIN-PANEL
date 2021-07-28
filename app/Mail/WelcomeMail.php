@@ -3,7 +3,6 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
@@ -18,7 +17,7 @@ class WelcomeMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->data=$data;
+        $this->data = $data;
     }
 
     /**
@@ -28,7 +27,7 @@ class WelcomeMail extends Mailable
      */
     public function build()
     {
-        $subject= 'welcome';
+        $subject = 'welcome';
         return $this->view('send')->subject($subject);
     }
 }

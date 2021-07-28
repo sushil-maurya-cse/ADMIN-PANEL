@@ -41,6 +41,7 @@
                 <thead>
                     <tr>
                         <th>Id</th>
+
                         <th>Name</th>
                         <th>E-mail</th>
                         <th>Action</th>
@@ -51,6 +52,7 @@
                     @foreach ($user as $item)
                         <tr>
                             <td>{{ $item->id }}</td>
+
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>
@@ -60,6 +62,9 @@
                                 <a href="{{ url('/edit-prod', $prodID) }}" class="btn btn-danger">Edit</a>
 
                                 <a href="{{ url('delete-user/' . $item->id) }}" class="btn btn-danger">Delete</a>
+                                <a href="{{ url('users/' . $item->id) }}" class="btn btn-danger">PReview</a>
+                            </td>
+
                             </td>
                             <td><input type="checkbox" class="toggle-class" data-id="{{ $item->id }}"
                                     data-toggle="toggle" data-style="slow" data-on="Enabled" data-off="Disabled"
@@ -69,11 +74,27 @@
                     @endforeach
                 </tbody>
             </table>
+            <div class="modal fade" id="practice_modal">
+                <div class="modal-dialog">
+                    <form id="companydata">
+                        <div class="modal-content">
+                            <input type="hidden" id="color_id" name="color_id" value="">
+                            <div class="modal-body">
+                                <input type="display" name="name" id="name"   class="form-control">
+
+                               <img src= "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg" width="50">
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
 
         </div>
     </div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    {{--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" ></script>--}}
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
 
@@ -84,7 +105,6 @@
 
 
     @push('new')
-
         <script src="{{ asset('assets/main.js') }}" defer></script>
     @endpush
 
@@ -124,6 +144,15 @@
                         }, 1000)
                     }
                 });
+            });
+
+</script>
+<script >
+            $('body').on('click', '#editCompany', function(event) {
+                event.preventDefault();
+                var id = $(this).data('id');
+                console.log(id)
+                $.get('users/' + id );
             });
         </script>
 

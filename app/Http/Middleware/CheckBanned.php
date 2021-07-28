@@ -15,11 +15,10 @@ class CheckBanned
      * @param  \Closure  $next
      * @return mixed
      */
-   
 
     public function handle(Request $request, Closure $next)
-{
-    if(auth()->check() && (auth()->user()->status == 0)){
+    {
+        if (auth()->check() && (auth()->user()->status == 0)) {
             Auth::logout();
 
             $request->session()->invalidate();
@@ -28,9 +27,9 @@ class CheckBanned
 
             return redirect()->route('login')->with('error', 'Your Account is suspended, please contact Admin.');
 
-    }
+        }
 
-    return $next($request);
-}
+        return $next($request);
+    }
 
 }

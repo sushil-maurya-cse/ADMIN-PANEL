@@ -19,11 +19,9 @@ class CreateCategoriesTable extends Migration
             $table->string('slug');
             $table->longText('description');
             $table->tinyInteger('status')->default('0');
-                
             $table->string('meta_title');
             $table->string('meta_descrip');
             $table->string('meta_keywords');
-
             $table->timestamps();
         });
     }

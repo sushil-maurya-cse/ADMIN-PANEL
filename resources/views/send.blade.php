@@ -51,12 +51,12 @@
                                              Hello {{ $data['name'] }},</h1>
                                          <p
                                              style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
-                                             Thanks for signin with E-Shop.</p>
+                                             You Have Sucessfully Created an account With E-Shop. </p>
                                          <p
                                              style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">
                                              <a href="http://127.0.0.1:1000/categories"
                                                  style="color:#ee4c50;text-decoration:underline;">You can Shop with
-                                                 us</a>
+                                                 E-Shop.</a>
                                          </p>
                                      </td>
                                  </tr>
